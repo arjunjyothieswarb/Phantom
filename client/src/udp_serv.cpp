@@ -6,6 +6,11 @@
 
 #include <udp_serv.hpp>
 
+uint64_t get_micros()
+{
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+}
+
 int UDPServer::init_server()
 {
     /**
@@ -61,7 +66,15 @@ void UDPServer::recv_buff(char *buf)
         else if (n == 0)
             continue;
 
+        // Load the command and update timestamp
         *buf = internal_buffer.load();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        prev_time_st = get_micros();
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(UDP_TRANSMISSION_RATE_MS));
     }
+}
+
+uint64_t UDPServer::get_time_stamp()
+{
+    return prev_time_st.load();
 }
