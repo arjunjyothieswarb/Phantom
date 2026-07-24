@@ -6,7 +6,6 @@
 #include <netinet/in.h>
 
 #define PORT 8080
-#define UDP_TRANSMISSION_RATE_MS 200
 
 class UDPClient
 {
@@ -19,5 +18,7 @@ public:
     int init_client();
     void send_msg(char *buf, int buf_len);
 };
+
+uint64_t get_micros();
 
 #endif

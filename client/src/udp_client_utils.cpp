@@ -4,6 +4,11 @@
 
 #include "udp_client_utils.hpp"
 
+uint64_t get_micros()
+{
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+}
+
 int UDPClient::init_client()
 {
     std::cout << "Initializing client" << std::endl;
