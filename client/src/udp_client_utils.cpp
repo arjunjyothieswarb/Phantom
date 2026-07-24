@@ -22,6 +22,8 @@ int UDPClient::init_client()
     serv_addr.sin_family = AF_INET;                         // IPv4
     serv_addr.sin_port = htons(PORT);                       // Port
     serv_addr.sin_addr.s_addr = inet_addr("192.168.1.180"); // Server IP
+
+    return 0;
 }
 
 void UDPClient::send_msg(char *buf, int buf_len)

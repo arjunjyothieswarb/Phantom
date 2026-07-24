@@ -12,12 +12,12 @@ build-cli:
 
 
 clean-cli:
-	rm -rf server/build/
+	rm -rf client/build/
 
 clean-serv:
 	rm -rf server/build/
 
-clean-all: clean-cli clean serv
+clean-all: clean-cli clean-serv
 
 
 clean-build-serv: clean-serv build-serv

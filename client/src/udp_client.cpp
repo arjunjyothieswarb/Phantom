@@ -11,10 +11,13 @@ int main(int argc, char **argv)
 {
     char c;
     int msg_len = 1;
+    int status;
     std::cout << "Hello World!" << std::endl;
 
     // Initializing client
-    myUDPClient.init_client();
+    status = myUDPClient.init_client();
+    if (status)
+        return status;
 
     // Setting terminal to non-canonical mode
     enableRawMode();
