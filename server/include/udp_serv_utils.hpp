@@ -5,7 +5,6 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <atomic>
-#include <thread>
 
 #define PORT 8080
 #define MAXLINE 10

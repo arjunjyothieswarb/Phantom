@@ -18,7 +18,7 @@ int UDPServer::init_server()
      *
      * */
 
-    std::cout << "Initiating server" << std::endl;
+    std::cout << "Initializing server" << std::endl;
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockfd < 0)

@@ -1,6 +1,6 @@
 #include "term_utils.hpp"
 
-void enableRaw()
+void enableRawMode()
 {
     // Store the original settings
     tcgetattr(STDIN_FILENO, &orig_termios);

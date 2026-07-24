@@ -4,9 +4,9 @@
 #include <termios.h>
 #include <unistd.h>
 
-struct termios orig_termios;
+static termios orig_termios;
 
-void enableRaw();
-void disableRaw();
+void enableRawMode();
+void disableRawMode();
 
 #endif

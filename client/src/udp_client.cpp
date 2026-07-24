@@ -1,23 +1,41 @@
 #include <iostream>
+#include <thread>
 #include <atomic>
 
 #include "term_utils.hpp"
+#include "udp_client_utils.hpp"
+
+UDPClient myUDPClient;
 
 int main(int argc, char **argv)
 {
     char c;
+    int msg_len = 1;
     std::cout << "Hello World!" << std::endl;
 
-    enableRaw();
+    // Initializing client
+    myUDPClient.init_client();
+
+    // Setting terminal to non-canonical mode
+    enableRawMode();
 
     while (true)
     {
-        c = getchar();
+        // Flushing the input to ensure only the
+        // latest press gets transmitted
+        tcflush(STDIN_FILENO, TCIFLUSH);
+        read(STDIN_FILENO, &c, 1);
+
         if (c == 'q')
             break;
         std::cout << "Key Pressed: " << c << std::endl;
+        myUDPClient.send_msg(&c, msg_len);
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(UDP_TRANSMISSION_RATE_MS));
     }
-    disableRaw();
+
+    // Restorting default terminal settings
+    disableRawMode();
 
     return 0;
 }
