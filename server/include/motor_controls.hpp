@@ -12,11 +12,10 @@
 class CarControl
 {
     int cmd;
-    MotorDriver driver;
 
 public:
-    CarControl();
     void setCMD(int);
+    MotorDriver driver;
 };
 
 #endif
