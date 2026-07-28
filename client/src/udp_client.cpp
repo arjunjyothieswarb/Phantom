@@ -58,6 +58,7 @@ int main(int argc, char **argv)
 
     while (isRunning)
     {
+        // Transmit only if capture is new
         if (get_micros() - prev_time < UDP_TRANSMISSION_RATE_MS)
             myUDPClient.send_msg(&buff, msg_len);
 
