@@ -1,6 +1,6 @@
 {
     "cmake.sourceDirectory": [
-        "/home/gypsy/Github/Phantom/server",
-        "/home/gypsy/Github/Phantom/client"
+        "${workspaceFolder}/server",
+        "${workspaceFolder}/client"
     ],
 }

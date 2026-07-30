@@ -3,11 +3,11 @@
 
 #include <wiringPi.h>
 
-#define GPIO_IN_LEFT_1 11
-#define GPIO_IN_LEFT_2 13
+#define GPIO_IN_LEFT_1 17
+#define GPIO_IN_LEFT_2 27
 
-#define GPIO_IN_RIGHT_1 15
-#define GPIO_IN_RIGHT_2 16
+#define GPIO_IN_RIGHT_1 22
+#define GPIO_IN_RIGHT_2 23
 
 #define MOTOR_LEFT 0
 #define MOTOR_RIGHT 1
